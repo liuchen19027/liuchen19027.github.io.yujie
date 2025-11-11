@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    cursor: url('images/red-hand.jpg'), auto;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+}
+
+.start-btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 40px;
+    font-size: 24px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn:hover {
+    background-color: #ff6666;
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 自定义鼠标样式 */
+#game-screen {
+    cursor: url('images/red-hand.jpg'), auto;
+}
+
+/* 背景左右抖动动画 */
+@keyframes shake-horizontal {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 0); }
+    20%, 40%, 60%, 80% { transform: translate(5px, 0); }
+}
+
+/* 背景上下抖动动画 */
+@keyframes shake-vertical {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(0, -5px); }
+    20%, 40%, 60%, 80% { transform: translate(0, 5px); }
+}
+
+.shake-horizontal {
+    animation: shake-horizontal 0.5s ease-in-out;
+}
+
+.shake-vertical {
+    animation: shake-vertical 0.5s ease-in-out;
+}
+
+/* 点击效果动画 */
+@keyframes hand-slap {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.slap-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/red-hand.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: hand-slap 0.3s ease-out;
+}
